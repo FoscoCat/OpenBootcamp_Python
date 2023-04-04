@@ -1,0 +1,20 @@
+class Vehiculo:
+    def __init__(self, color, ruedas, puertas):
+        self.color = color
+        self.ruedas = ruedas
+        self.puertas = puertas
+
+
+class Coche(Vehiculo):
+    def __init__(self, color, ruedas, puertas, velocidad, cilindrada):
+        super().__init__(color, ruedas, puertas)
+        self.velocidad = velocidad
+        self.cilindrada = cilindrada
+
+
+ford_mondeo = Coche("azul", 4, 4, 120, 1600)
+print("El Ford Mondeo es de color",ford_mondeo.color)
+print("Número ruedas:",ford_mondeo.ruedas)
+print("Número puertas:",ford_mondeo.puertas)
+print("Velocidad máxima:",ford_mondeo.velocidad,"kmh")
+print("Cilindrada:",ford_mondeo.cilindrada,"cc")
