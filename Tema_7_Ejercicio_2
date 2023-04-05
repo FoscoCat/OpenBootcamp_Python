@@ -1,0 +1,13 @@
+import time
+
+hora_actual = time.localtime().tm_hour
+minutos_actual = time.localtime().tm_min
+
+if hora_actual >= 19:
+    print("Ya es hora de volver a casa")
+else:
+    hora_salida = 19
+    minutos_trabajo = (hora_salida - hora_actual) * 60 + (60 - minutos_actual)
+    horas_trabajo = minutos_trabajo // 60
+    minutos_restantes = minutos_trabajo % 60
+    print("Todavía queda", horas_trabajo, "hora(s) y", minutos_restantes, "minuto(s) de trabajo.")
