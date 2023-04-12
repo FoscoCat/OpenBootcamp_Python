@@ -1,0 +1,12 @@
+archivo = open('mi_archivo.txt', 'w')
+
+archivo.write('Este es el primer texto que vamos a escribir.\n')
+
+archivo.close()
+
+archivo = open('mi_archivo.txt', 'w')
+
+archivo.write('Este es el segundo texto que vamos a escribir.')
+
+# Cerramos el archivo después de la segunda escritura
+archivo.close()
