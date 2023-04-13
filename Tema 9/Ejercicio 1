@@ -1,0 +1,10 @@
+input_countries = input("Introduce una lista de países separados por comas: ")
+
+country_list = [country.strip() for country in input_countries.split(",")]
+
+unique_countries = list(set(country_list))
+
+sorted_countries = ", ".join(sorted(unique_countries))
+
+print("Lista de países introducidos sin duplicados y ordenados alfabéticamente:")
+print(sorted_countries)
