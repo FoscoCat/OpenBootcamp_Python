@@ -1,0 +1,29 @@
+import sqlite3
+
+conn = sqlite3.connect('alumnos.db')
+
+conn.execute('''CREATE TABLE Alumnos
+             (id INTEGER PRIMARY KEY,
+             nombre TEXT NOT NULL,
+             apellido TEXT NOT NULL);''')
+
+conn.execute("INSERT INTO Alumnos (nombre, apellido) VALUES ('Juan', 'Pérez')")
+conn.execute("INSERT INTO Alumnos (nombre, apellido) VALUES ('María', 'González')")
+conn.execute("INSERT INTO Alumnos (nombre, apellido) VALUES ('Pedro', 'Martínez')")
+conn.execute("INSERT INTO Alumnos (nombre, apellido) VALUES ('Laura', 'Sánchez')")
+conn.execute("INSERT INTO Alumnos (nombre, apellido) VALUES ('Carlos', 'García')")
+conn.execute("INSERT INTO Alumnos (nombre, apellido) VALUES ('Ana', 'Fernández')")
+conn.execute("INSERT INTO Alumnos (nombre, apellido) VALUES ('Miguel', 'López')")
+conn.execute("INSERT INTO Alumnos (nombre, apellido) VALUES ('Sofía', 'Ramírez')")
+
+conn.commit()
+
+nombre_buscado = 'Laura'
+cursor = conn.execute("SELECT id, nombre, apellido FROM Alumnos WHERE nombre = ?", (nombre_buscado,))
+alumno = cursor.fetchone()
+if alumno:
+    print(f"ID: {alumno[0]}, Nombre: {alumno[1]}, Apellido: {alumno[2]}")
+else:
+    print(f"No se encontró ningún alumno con el nombre '{nombre_buscado}'")
+
+conn.close()
